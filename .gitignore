@@ -1,0 +1,4 @@
+.env
+.prettierrc.json
+.vscode
+tailwind.config.js
