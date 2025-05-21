@@ -1,0 +1,23 @@
+package views
+
+var NavbarHandle = templ.NewOnceHandle()
+
+templ Navbar() {
+	@NavbarHandle.Once() {
+		<div class="group flex flex-col">
+			<div class="">
+				<nav hx-boost="true">
+					<ul>
+						<li>
+							<a class="text-blue-600/75 dark:text-sky-400/75" href="/" hx-swap="innerHTML">Home</a>
+						</li>
+						<li>
+							<a class="text-amber-950" href="/career" hx-swap="innerHTML">Career</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="size-2"></div>
+		</div>
+	}
+}
