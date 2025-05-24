@@ -1,7 +1,51 @@
 @import "tailwindcss";
-@layer base {
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
+@layer utilities {
+  :root {
+    --cursor-color: white;
+  }
+  .typing {
+    border-right: 1px solid var(--cursor-color);
+    overflow: hidden;
+    animation:
+      blinking 1s steps(1, end) infinite,
+      typing 3s steps(40, end) forwards,
+      deleting 3s steps(40, end) 6s forwards;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .idleTyping {
+    border-right: 1px solid var(--cursor-color);
+    overflow: hidden;
+    animation: blinking 1s steps(1, end) infinite;
+    white-space: nowrap;
+  }
+  @keyframes blinking {
+    0% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: var(--cursor-color);
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes deleting {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
   }
 }

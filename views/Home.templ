@@ -2,12 +2,67 @@ package views
 
 import "deltawashere/portfolio/models"
 
+var typingHanlder = templ.NewOnceHandle()
+
 templ Home(profile models.Profile) {
 	@Layout() {
-		<div>
-			<p class="text-amber-900">
-				Howdy, name's
-			</p>
+		@typingHanlder.Once() {
+			@templ.JSONScript("summary", profile.Summary)
+			<script>
+				let counter = 0
+
+				function typeAndDelete(text, summary){
+
+					text.innerHTML = summary[counter];
+					text.classList.add("typing")
+					counter++;
+
+					text.addEventListener("animationend", (event)=> {
+						if(event.animationName==="typing" && summary.length <= counter){
+							text.classList.add("idleTyping")
+							text.classList.remove("typing")
+							resetAnimation(text);
+						}
+						
+						if(event.animationName==="deleting"){
+							text.innerHTML = summary[counter];
+							counter++;
+							resetAnimation(text)
+						}
+					});
+
+					text.addEventListener("animationstart", (event)=>{
+						console.log(event);
+					});
+
+					function resetAnimation(text){
+						text.style.animation = 'none';
+						text.offsetHeight; /* trigger reflow */
+						text.style.animation = null; 
+					}
+				}
+
+			</script>
+		}
+		<div class="flex h-screen w-screen items-center justify-center">
+			<script>
+				(()=>{
+					document.addEventListener("DOMContentLoaded", ()=>{
+						const text = document.getElementById("summaryText")
+						const textContainer = document.getElementById("typingContainer")
+						const summary = JSON.parse(document.getElementById('summary').textContent);
+						typeAndDelete(text, summary);
+					});
+				})()
+			</script>
+			<div class="w-10/12 text-center">
+				<div class="inline-block" id="typingContainer">
+					<h2 class="" id="summaryText"></h2>
+				</div>
+			</div>
 		</div>
 	}
+}
+
+templ typingComponent(text string) {
 }

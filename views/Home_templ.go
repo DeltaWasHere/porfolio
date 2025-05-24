@@ -10,6 +10,8 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import "deltawashere/portfolio/models"
 
+var typingHanlder = templ.NewOnceHandle()
+
 func Home(profile models.Profile) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -43,7 +45,33 @@ func Home(profile models.Profile) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div><p class=\"text-amber-900\">Howdy, name's</p></div>")
+			templ_7745c5c3_Var3 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+				templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+				templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+				if !templ_7745c5c3_IsBuffer {
+					defer func() {
+						templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+						if templ_7745c5c3_Err == nil {
+							templ_7745c5c3_Err = templ_7745c5c3_BufErr
+						}
+					}()
+				}
+				ctx = templ.InitializeContext(ctx)
+				templ_7745c5c3_Err = templ.JSONScript("summary", profile.Summary).Render(ctx, templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <script>\n\t\t\t\tlet counter = 0\n\n\t\t\t\tfunction typeAndDelete(text, summary){\n\n\t\t\t\t\ttext.innerHTML = summary[counter];\n\t\t\t\t\ttext.classList.add(\"typing\")\n\t\t\t\t\tcounter++;\n\n\t\t\t\t\ttext.addEventListener(\"animationend\", (event)=> {\n\t\t\t\t\t\tif(event.animationName===\"typing\" && summary.length <= counter){\n\t\t\t\t\t\t\ttext.classList.add(\"idleTyping\")\n\t\t\t\t\t\t\ttext.classList.remove(\"typing\")\n\t\t\t\t\t\t\tresetAnimation(text);\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t\tif(event.animationName===\"deleting\"){\n\t\t\t\t\t\t\ttext.innerHTML = summary[counter];\n\t\t\t\t\t\t\tcounter++;\n\t\t\t\t\t\t\tresetAnimation(text)\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\n\t\t\t\t\ttext.addEventListener(\"animationstart\", (event)=>{\n\t\t\t\t\t\tconsole.log(event);\n\t\t\t\t\t});\n\n\t\t\t\t\tfunction resetAnimation(text){\n\t\t\t\t\t\ttext.style.animation = 'none';\n\t\t\t\t\t\ttext.offsetHeight; /* trigger reflow */\n\t\t\t\t\t\ttext.style.animation = null; \n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t</script>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				return nil
+			})
+			templ_7745c5c3_Err = typingHanlder.Once().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <div class=\"flex h-screen w-screen items-center justify-center\"><script>\n\t\t\t\t(()=>{\n\t\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", ()=>{\n\t\t\t\t\t\tconst text = document.getElementById(\"summaryText\")\n\t\t\t\t\t\tconst textContainer = document.getElementById(\"typingContainer\")\n\t\t\t\t\t\tconst summary = JSON.parse(document.getElementById('summary').textContent);\n\t\t\t\t\t\ttypeAndDelete(text, summary);\n\t\t\t\t\t});\n\t\t\t\t})()\n\t\t\t</script><div class=\"w-10/12 text-center\"><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -53,6 +81,31 @@ func Home(profile models.Profile) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
+		return nil
+	})
+}
+
+func typingComponent(text string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var4 == nil {
+			templ_7745c5c3_Var4 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
 		return nil
 	})
 }
