@@ -164,8 +164,14 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
   .absolute {
     position: absolute;
+  }
+  .relative {
+    position: relative;
   }
   .static {
     position: static;
@@ -173,11 +179,17 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
   .inline-block {
     display: inline-block;
+  }
+  .table {
+    display: table;
   }
   .h-full {
     height: 100%;
@@ -197,6 +209,9 @@
   .w-screen {
     width: 100vw;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
@@ -211,6 +226,11 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .overflow-hidden {
     overflow: hidden;

@@ -8,7 +8,7 @@ package views
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "deltawashere/portfolio/models"
+import "deltawashere/portfolio/viewmodels"
 
 var typingHanlder = templ.NewOnceHandle()
 
