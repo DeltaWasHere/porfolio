@@ -11,11 +11,11 @@ templ Layout() {
 				<link href="/static/css/output.css" rel="stylesheet"/>
 				<script src="/static/script/htmx.min.js"></script>
 			</head>
-			<body>
+			<body class="overflow-x-hidden overflow-y-visible">
 				<header>
 					@Navbar()
 				</header>
-				<main id="wrapper" class="flex h-full w-full">
+				<main id="wrapper" class="flex h-screen w-screen">
 					{ children... }
 				</main>
 			</body>

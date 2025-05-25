@@ -44,7 +44,7 @@ templ Home(profile models.Profile) {
 
 			</script>
 		}
-		<div class="flex h-screen w-screen items-center justify-center">
+		<div class="flex h-screen w-screen flex-col items-center justify-center overflow-y-visible">
 			<script>
 				(()=>{
 					document.addEventListener("DOMContentLoaded", ()=>{
@@ -55,17 +55,15 @@ templ Home(profile models.Profile) {
 					});
 				})()
 			</script>
-			<div class="flex w-10/12 flex-col items-center gap-5 text-center">
-				<div class="flex overflow-hidden rounded-full">
+			<div class="flex h-screen w-10/12 shrink-0 flex-col items-center justify-center gap-5 text-center">
+				<div class="flex overflow-hidden rounded-full align-middle">
 					<img class="" src={ profile.Picture }/>
 				</div>
 				<div class="inline-block" id="typingContainer">
 					<h2 class="" id="summaryText"></h2>
 				</div>
 			</div>
+			<button class="absolute bottom-[-100px]" hx-swap="innerHtml" hx-target="#wrapper" hx-trigger="revealed" hx-get="/career">b</button>
 		</div>
 	}
-}
-
-templ typingComponent(text string) {
 }

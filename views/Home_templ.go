@@ -71,7 +71,7 @@ func Home(profile models.Profile) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <div class=\"flex h-screen w-screen items-center justify-center\"><script>\n\t\t\t\t(()=>{\n\t\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", ()=>{\n\t\t\t\t\t\tconst text = document.getElementById(\"summaryText\")\n\t\t\t\t\t\tconst textContainer = document.getElementById(\"typingContainer\")\n\t\t\t\t\t\tconst summary = JSON.parse(document.getElementById('summary').textContent);\n\t\t\t\t\t\ttypeAndDelete(text, summary);\n\t\t\t\t\t});\n\t\t\t\t})()\n\t\t\t</script><div class=\"flex w-10/12 flex-col items-center gap-5 text-center\"><div class=\"flex overflow-hidden rounded-full\"><img class=\"\" src=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <div class=\"flex h-screen w-screen flex-col items-center justify-center overflow-y-visible\"><script>\n\t\t\t\t(()=>{\n\t\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", ()=>{\n\t\t\t\t\t\tconst text = document.getElementById(\"summaryText\")\n\t\t\t\t\t\tconst textContainer = document.getElementById(\"typingContainer\")\n\t\t\t\t\t\tconst summary = JSON.parse(document.getElementById('summary').textContent);\n\t\t\t\t\t\ttypeAndDelete(text, summary);\n\t\t\t\t\t});\n\t\t\t\t})()\n\t\t\t</script><div class=\"flex h-screen w-10/12 shrink-0 flex-col items-center justify-center gap-5 text-center\"><div class=\"flex overflow-hidden rounded-full align-middle\"><img class=\"\" src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -84,7 +84,7 @@ func Home(profile models.Profile) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></div><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></div><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div><button class=\"absolute bottom-[-100px]\" hx-swap=\"innerHtml\" hx-target=\"#wrapper\" hx-trigger=\"revealed\" hx-get=\"/career\">b</button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -94,31 +94,6 @@ func Home(profile models.Profile) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		return nil
-	})
-}
-
-func typingComponent(text string) templ.Component {
-	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
-			return templ_7745c5c3_CtxErr
-		}
-		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-		if !templ_7745c5c3_IsBuffer {
-			defer func() {
-				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err == nil {
-					templ_7745c5c3_Err = templ_7745c5c3_BufErr
-				}
-			}()
-		}
-		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
-		}
-		ctx = templ.ClearChildren(ctx)
 		return nil
 	})
 }
