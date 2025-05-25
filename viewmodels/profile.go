@@ -1,7 +1,7 @@
-package models
+package viewmodels
 
-type Profile struct{
+type Profile struct {
 	Picture string
 	Summary [6]string
-	Name string
+	Name    string
 }
