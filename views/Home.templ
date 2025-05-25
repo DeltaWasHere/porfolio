@@ -4,7 +4,7 @@ import "deltawashere/portfolio/viewmodels"
 
 var typingHanlder = templ.NewOnceHandle()
 
-templ Home(profile models.Profile) {
+templ Home(profile viewmodels.Profile) {
 	@Layout() {
 		@typingHanlder.Once() {
 			@templ.JSONScript("summary", profile.Summary)
