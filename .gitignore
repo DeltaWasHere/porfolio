@@ -2,3 +2,4 @@
 .prettierrc.json
 .vscode
 tailwind.config.js
+__debug_bin*

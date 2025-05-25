@@ -11,7 +11,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
-type Profile struct{
+type Profile struct {
 	Login                   string    `json:"login"`
 	ID                      int       `json:"id"`
 	NodeID                  string    `json:"node_id"`
@@ -52,22 +52,22 @@ type Profile struct{
 	TwoFactorAuthentication bool      `json:"two_factor_authentication"`
 }
 
-func (c *GitApiClient)GetProfile(ctx context.Context)(*Profile, error){
+func (c *GitApiClient) GetProfile(ctx context.Context) (*Profile, error) {
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("%susers", c.BaseUrl), nil)
-	if err != nil{
-		return nil, err;
+	req, err := http.NewRequest("GET", fmt.Sprintf("%suser", c.BaseUrl), nil)
+	if err != nil {
+		return nil, err
 	}
 
-	req =  req.WithContext(ctx)
+	req = req.WithContext(ctx)
 
 	token := os.Getenv("API_SECRET")
 
 	secret := fmt.Sprintf("Bearer %s", token)
 
-	req.Header.Set("Content-Type", "application/json");
-	req.Header.Set("Accept", "application/json");
-	req.Header.Set("Authorization", secret);
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Authorization", secret)
 
 	res, err := c.HTTPClient.Do(req)
 	if err != nil {
@@ -76,13 +76,13 @@ func (c *GitApiClient)GetProfile(ctx context.Context)(*Profile, error){
 
 	defer res.Body.Close()
 
-	if res.StatusCode<http.StatusOK || res.StatusCode >= http.StatusBadRequest {
+	if res.StatusCode < http.StatusOK || res.StatusCode >= http.StatusBadRequest {
 		return nil, err
 	}
 
 	var fullResponse Profile
 
-	if err := json.NewDecoder(res.Body).Decode(&fullResponse); err != nil{
+	if err := json.NewDecoder(res.Body).Decode(&fullResponse); err != nil {
 		return nil, err
 	}
 

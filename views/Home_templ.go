@@ -71,7 +71,20 @@ func Home(profile models.Profile) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <div class=\"flex h-screen w-screen items-center justify-center\"><script>\n\t\t\t\t(()=>{\n\t\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", ()=>{\n\t\t\t\t\t\tconst text = document.getElementById(\"summaryText\")\n\t\t\t\t\t\tconst textContainer = document.getElementById(\"typingContainer\")\n\t\t\t\t\t\tconst summary = JSON.parse(document.getElementById('summary').textContent);\n\t\t\t\t\t\ttypeAndDelete(text, summary);\n\t\t\t\t\t});\n\t\t\t\t})()\n\t\t\t</script><div class=\"w-10/12 text-center\"><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <div class=\"flex h-screen w-screen items-center justify-center\"><script>\n\t\t\t\t(()=>{\n\t\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", ()=>{\n\t\t\t\t\t\tconst text = document.getElementById(\"summaryText\")\n\t\t\t\t\t\tconst textContainer = document.getElementById(\"typingContainer\")\n\t\t\t\t\t\tconst summary = JSON.parse(document.getElementById('summary').textContent);\n\t\t\t\t\t\ttypeAndDelete(text, summary);\n\t\t\t\t\t});\n\t\t\t\t})()\n\t\t\t</script><div class=\"flex w-10/12 flex-col items-center gap-5 text-center\"><div class=\"flex overflow-hidden rounded-full\"><img class=\"\" src=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(profile.Picture)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/Home.templ`, Line: 60, Col: 40}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></div><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -101,9 +114,9 @@ func typingComponent(text string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		return nil

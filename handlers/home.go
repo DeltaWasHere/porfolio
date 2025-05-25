@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func HomeHandler(w http.ResponseWriter, r *http.Request){
-	summary := [6]string{"Howdy, name's delta","Im a full stack software developer","This is my portfolio which it's still an WIP","So.. yeah you can read it if you want to know more 'bout me","I ain't writting everything here lol","bye bye"}
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	summary := [6]string{"Howdy, name's delta", "Im a full stack software developer", "This is my portfolio which it's still an WIP", "So.. yeah you can read it if you want to know more 'bout me", "I ain't writting everything here lol", "bye bye"}
 
 	client := client.NewClient()
 
@@ -20,7 +20,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request){
 	profile := models.Profile{
 		Picture: profileData.AvatarURL,
 		Summary: summary,
-		Name: profileData.Name,
+		Name:    profileData.Name,
 	}
 
 	c := views.Home(profile)
