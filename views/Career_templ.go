@@ -8,7 +8,12 @@ package views
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Career() templ.Component {
+import "deltawashere/portfolio/viewmodels"
+import "math/rand/v2"
+import "time"
+import "fmt"
+
+func Career(career viewmodels.Career) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -41,7 +46,75 @@ func Career() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div><p class=\"text-amber-300\">this is my career page</p></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex w-screen flex-col\"><h2 class=\"self-center\">My career so far</h2><div class=\"flex h-screen flex-row self-center\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for _, line := range career.TimeLine {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"hover: relative flex h-full w-16 flex-col\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				for _, event := range line {
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"group absolute flex h-full w-full p-1\" style=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var3 string
+					templ_7745c5c3_Var3, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(getPos(event.Start, event.End, career.Earliest))
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/Career.templ`, Line: 16, Col: 113}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\">")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var4 = []any{" rounded-4xl w-full border-2 border-black " + getColor()}
+					templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var4...)
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var5 string
+					templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var4).String())
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/Career.templ`, Line: 1, Col: 0}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\"><div class=\"-left-3/1 w-3/1 absolute top-1/4 flex origin-right scale-x-0 justify-center rounded-full border-2 border-black bg-inherit p-3 transition-transform duration-1000 group-hover:scale-x-100\"><h3 class=\"wrap-break-word\">")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var6 string
+					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(event.Title)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/Career.templ`, Line: 20, Col: 24}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</h3></div></div></div>")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -53,6 +126,37 @@ func Career() templ.Component {
 		}
 		return nil
 	})
+}
+
+func getPos(start viewmodels.CustomTime, end viewmodels.CustomTime, earliest time.Time) string {
+	today := float64(time.Now().Unix() - earliest.Unix() + 1)
+
+	startUnix := float64(start.Unix() - earliest.Unix() + 1)
+	endUnix := float64(end.Unix() - earliest.Unix() + 1)
+
+	initialPosition := int((startUnix / today) * 100)
+
+	relativeWidth := int(((endUnix - startUnix) / today) * 100)
+
+	return fmt.Sprintf("top: %d%%; height: %d%%", initialPosition, relativeWidth)
+}
+
+var colors = []string{"bg-red-500", "bg-blue-600", "bg-green-600", "bg-pink-600", "bg-yellow-600", "bg-cyan-600"}
+var colorsToPick = append([]string(nil), colors...) // make a copy
+
+func getColor() string {
+	if len(colorsToPick) == 0 {
+		colorsToPick = append([]string(nil), colors...) // make a copy
+	}
+	pickedColorIndex := rand.IntN(len(colorsToPick))
+	color := colorsToPick[pickedColorIndex]
+
+	if pickedColorIndex < len(colorsToPick)-1 { //outofbound scenario
+		colorsToPick = append(colorsToPick[:pickedColorIndex], colorsToPick[pickedColorIndex+1:]...)
+	} else {
+		colorsToPick = colorsToPick[:pickedColorIndex]
+	}
+	return color
 }
 
 var _ = templruntime.GeneratedTemplate

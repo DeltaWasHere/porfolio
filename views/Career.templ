@@ -1,9 +1,62 @@
 package views
 
-templ Career() {
+import "deltawashere/portfolio/viewmodels"
+import "math/rand/v2"
+import "time"
+import "fmt"
+
+templ Career(career viewmodels.Career) {
 	@Layout() {
-		<div>
-			<p class="text-amber-300">this is my career page</p>
+		<div class="flex w-screen flex-col">
+			<h2 class="self-center">My career so far</h2>
+			<div class="flex h-screen flex-row self-center">
+				for _, line := range career.TimeLine {
+					<div class="hover: relative flex h-full w-16 flex-col">
+						for _, event := range line {
+							<div class="group absolute flex h-full w-full p-1" style={ getPos(event.Start, event.End, career.Earliest) }>
+								<div class={ " rounded-4xl w-full border-2 border-black " + getColor() }>
+									<div class="-left-3/1 w-3/1 absolute top-1/4 flex origin-right scale-x-0 justify-center rounded-full border-2 border-black bg-inherit p-3 transition-transform duration-1000 group-hover:scale-x-100">
+										<h3 class="wrap-break-word">
+											{ event.Title }
+										</h3>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				}
+			</div>
 		</div>
 	}
+}
+
+func getPos(start viewmodels.CustomTime, end viewmodels.CustomTime, earliest time.Time) string {
+	today := float64(time.Now().Unix() - earliest.Unix() + 1)
+
+	startUnix := float64(start.Unix() - earliest.Unix() + 1)
+	endUnix := float64(end.Unix() - earliest.Unix() + 1)
+
+	initialPosition := int((startUnix / today) * 100)
+
+	relativeWidth := int(((endUnix - startUnix) / today) * 100)
+
+	return fmt.Sprintf("top: %d%%; height: %d%%", initialPosition, relativeWidth)
+}
+
+var colors = []string{"bg-red-500", "bg-blue-600", "bg-green-600", "bg-pink-600", "bg-yellow-600", "bg-cyan-600"}
+var colorsToPick = append([]string(nil), colors...) // make a copy
+
+func getColor() string {
+	if len(colorsToPick) == 0 {
+		colorsToPick = append([]string(nil), colors...) // make a copy
+	}
+	pickedColorIndex := rand.IntN(len(colorsToPick))
+	color := colorsToPick[pickedColorIndex]
+
+	if pickedColorIndex < len(colorsToPick)-1 { //outofbound scenario
+		colorsToPick = append(colorsToPick[:pickedColorIndex], colorsToPick[pickedColorIndex+1:]...)
+	} else {
+		colorsToPick = colorsToPick[:pickedColorIndex]
+	}
+	return color
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"deltawashere/portfolio/handlers"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -23,5 +24,5 @@ func main() {
 	r.Get("/", handlers.HomeHandler)
 	r.Get("/career", handlers.CareerHandler)
 
-	http.ListenAndServe(":3000", r)
+	log.Fatal(http.ListenAndServe(":3000", r))
 }

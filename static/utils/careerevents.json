@@ -1,0 +1,43 @@
+[
+    [
+        {
+            "id": 0,
+            "start": "2018-08",
+            "end": "2023-05",
+            "title": "Education in CETI",
+            "summary": "Applied to the CETI next to Colomos Park and studied the Technician at Software Development career which in US equivalent should be an Associates title. I learned a lot when it comes to the software development cycle and how to develop software from the dust like stablishing requirements, doing the design using tools like UML diagrams, among other theory things like networking and a bit of cybersecurity. Coding wise I started at second seemester with C++ and over the career I also learned Java (mainly for mobile development), Swing, C#, MySQL, MariaDB, PHP, HTML, JS, CSS and a bit of Firebase RTD. For my final project I ended up learning React, ExpressJS, ElectronJS and DiscordJS, could read more about this project either in the project section or its own timeline event."
+        },
+        {
+            "id": 1,
+            "start": "2024-08",
+            "end": "today",
+            "title": "Education in Univer online",
+            "summary": "Currently studying in Univer on an online modality, got a schollarship of 50% due to having 85>Grades. As for now this has been more of a review for the prewvious things CETI taught me along some new stuff like vector calculus"
+        }
+    ],
+    [
+        {
+            "id": 2,
+            "start": "2022-02",
+            "end": "2023-04",
+            "title": "Graduation project",
+            "summary": "Ultimately decided to do its own section to this. CETI requires their students to do a complete software project form barebone applying lot of the learned concepts(requirements, diagrams, etc) even if you dont want to graduate with the degree its still required. My project consisted of an completionist platform that showed a game achievements, users completed achievements, a leaderboard rank system, completion guides8game and achievement), customizable overlay to follow guides during gaming sessions, thread system, to follow up problems reportd by the users which were ultimately resolved usign a discord bot, and more stuf that you find in each system project on below page(or my github) . Used Java, React, ElectronJS, ExpressJS, DiscordJS, MariaDB and even Puppeteer. This app consisted of a Mobile App, a Web Page, a Desktop App, a Discord Bot an API and a MariaDB database. Ultimately ended up with 700 pages on the documentation file and its worth to say that the project was not perfect and several code crimes were commited."
+        },
+        {
+            "id": 3,
+            "start": "2024-09",
+            "end": "today",
+            "title": "Working at PEVAPI",
+            "summary": "After months of search I finally landed on my first software development job, no internship, no practices, directly into business, yey. Here I perform as a full stack software developer working for an internal US client and using dotnet(C#) related frameworks like ASP.NET, WPF. I also collaborate with my local team and international teams to develop new features and maintain current systems. So far one of my most proud achievements here is the implementation of an FFMPEG abstraction library to reduce streams load times by 30%!. Worth to say that this job not only i employ myself in software development duties but also worked as a CCTV monitorist, supervisor, helped with interviews and helped during the review of documentation to get certifications."
+        }
+    ],
+    [
+        {
+            "id": 4,
+            "start": "2024-01",
+            "end": "today",
+            "title": "Misc, or activities during my free time",
+            "summary": "Just a brief of what I've done/I do on my free time whenever I can. First, I like games, a lot and I consider my self a completonist since I like to complete games with all their achievements and if the game is too good I stick to it for very long times like path of exile, you may check my steam profile at: https://steamcommunity.com/profiles/76561198213357323/. Along with playign games I like to lear new stuff, In my free time I've studied WPF(which helped me landing a job), switched to Linux as my main drive and I'm still leranign it from a fedora plug and play distro to \"DIY\" arch. As for now I'm also learning Rust and Go(as I do this protfolio) and getting myself into the reading habbit startign with the halo books collectionI bough some eyars ago. As for my current year goals there is: finishing my halo books, get 75/100 games completed at 100%, develop a minecraft mod about nuclear science(miss my nuclear bombs fav mod), and keep learnign new stuff which in fact is quite impossible to fail."
+        }
+    ]
+]

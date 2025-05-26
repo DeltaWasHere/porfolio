@@ -84,7 +84,7 @@ func Home(profile viewmodels.Profile) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></div><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div><button class=\"absolute bottom-[-100px]\" hx-swap=\"innerHtml\" hx-target=\"#wrapper\" hx-trigger=\"revealed\" hx-get=\"/career\">b</button></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></div><div class=\"inline-block\" id=\"typingContainer\"><h2 class=\"\" id=\"summaryText\"></h2></div></div><button class=\"absolute bottom-[-100px]\" hx-swap=\"innerHtml\" hx-replace-url=\"true\" hx-target=\"#wrapper\" hx-trigger=\"revealed\" hx-get=\"/career\">b</button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

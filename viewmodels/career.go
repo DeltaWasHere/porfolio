@@ -2,15 +2,16 @@ package viewmodels
 
 import "time"
 
-type Event struct {
-	id    int
-	start time.Time
-	end   time.Time
-	title string
+type Event struct { //todo add a sort structure to make the timeline in unorreder events
+	Id      int
+	Start   CustomTime
+	End     CustomTime
+	Title   string
+	Summary string
+	Image   string
 }
 
-type EventDetails struct {
-	id      int
-	summary string
-	image   string
+type Career struct {
+	TimeLine [][]Event
+	Earliest time.Time
 }

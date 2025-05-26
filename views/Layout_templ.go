@@ -43,7 +43,7 @@ func Layout() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/css/output.css\" rel=\"stylesheet\"><script src=\"/static/script/htmx.min.js\"></script></head><body class=\"overflow-x-hidden overflow-y-visible\"><header>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/css/output.css\" rel=\"stylesheet\"><script src=\"/static/script/htmx.min.js\"></script></head><body class=\"overflow-x-hidden overflow-y-visible bg-neutral-900 font-mono text-white antialiased\"><header>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
