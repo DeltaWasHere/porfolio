@@ -9,13 +9,14 @@ templ Career(career viewmodels.Career) {
 	@Layout() {
 		<div class="flex w-screen flex-col">
 			<h2 class="self-center">My career so far</h2>
+			<h2 class="self-center">{ career.Earliest.Format("2006-01") }</h2>
 			<div class="flex h-screen flex-row self-center">
 				for _, line := range career.TimeLine {
-					<div class="hover: relative flex h-full w-16 flex-col">
+					<div class="hover: relative flex h-full w-10 flex-col">
 						for _, event := range line {
 							<div class="group absolute flex h-full w-full p-1" style={ getPos(event.Start, event.End, career.Earliest) }>
 								<div class={ " rounded-4xl w-full border-2 border-black " + getColor() }>
-									<div class="-left-3/1 w-3/1 absolute top-1/4 flex origin-right scale-x-0 justify-center rounded-full border-2 border-black bg-inherit p-3 transition-transform duration-1000 group-hover:scale-x-100">
+									<div class="-left-3/1 w-3/1 absolute top-1/4 flex origin-right scale-x-0 justify-center rounded-2xl border-2 border-black bg-inherit p-3 text-center transition-transform duration-500 group-hover:scale-x-100">
 										<h3 class="wrap-break-word">
 											{ event.Title }
 										</h3>
@@ -26,6 +27,7 @@ templ Career(career viewmodels.Career) {
 					</div>
 				}
 			</div>
+			<h2 class="self-center">{ career.Earliest.Format("Today") }</h2>
 		</div>
 	}
 }

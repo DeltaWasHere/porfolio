@@ -23,6 +23,7 @@ func main() {
 
 	r.Get("/", handlers.HomeHandler)
 	r.Get("/career", handlers.CareerHandler)
+	r.Get("/event/{id}", handlers.CareerHandler)
 
 	log.Fatal(http.ListenAndServe(":3000", r))
 }

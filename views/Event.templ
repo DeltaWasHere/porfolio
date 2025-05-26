@@ -1,0 +1,15 @@
+package views
+
+import "deltawashere/portfolio/viewmodels"
+
+templ Event(event viewmodels.Event) {
+	@Layout() {
+		<div>
+			<h2>{ event.Title }</h2>
+			<div>
+				<div><img src={ event.Image }/></div>
+				<div>{ event.Summary }</div>
+			</div>
+		</div>
+	}
+}

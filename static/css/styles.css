@@ -8,8 +8,8 @@
     overflow: hidden;
     animation:
       blinking 1s steps(1, end) infinite,
-      typing 3s steps(40, end) forwards,
-      deleting 3s steps(40, end) 6s forwards;
+      typing 1s steps(40, end) forwards,
+      deleting 0.755s steps(40, end) 4.25s forwards;
     overflow: hidden;
     white-space: nowrap;
   }

@@ -5,7 +5,7 @@ var NavbarHandle = templ.NewOnceHandle()
 templ Navbar() {
 	@NavbarHandle.Once() {
 		<div class="group absolute top-1/2 flex flex-row">
-			<div class="duration-1200 h-52 w-0 content-center overflow-hidden transition-all ease-in-out group-hover:sm:w-20">
+			<div class="duration-350 h-52 w-0 content-center overflow-hidden transition-all ease-in-out group-hover:sm:w-20">
 				<nav hx-boost="true">
 					<ul>
 						<li>
@@ -17,7 +17,7 @@ templ Navbar() {
 					</ul>
 				</nav>
 			</div>
-			<div class="rotate-270 self-center transition duration-1000 group-hover:rotate-90">
+			<div class="rotate-270 self-center transition duration-300 group-hover:rotate-90">
 				<svg id="Expand_Arrow_24" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<rect width="24" height="24" stroke="none" fill="#FFFFF" opacity="0"></rect>
 					<g transform="matrix(0.91 0 0 0.91 12 12)">
